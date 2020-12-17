@@ -60,7 +60,7 @@ export function linkReducer(state = intialState, { type, payload }) {
       return {...state,error:payload.msg}
     case CLEARLINK:
 
-    return {...state,link:""};
+    return {...state,link:"",error:""};
     
     case POSTLINK:
       return { ...state,  links: [payload, ...state.links]};

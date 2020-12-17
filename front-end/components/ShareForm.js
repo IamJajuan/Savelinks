@@ -8,7 +8,6 @@ import { connect } from 'react-redux'
 import {copyLink,postLink,clearLink} from '../actions/LinkActions'
 import RootStack from './RootStack'
 import Loading from './Loading';
-import FlashMessage from 'react-native-flash-message';
 import Error from './Error';
 
     const ShareForm = (props) => {
@@ -23,7 +22,7 @@ import Error from './Error';
 
     useEffect(() => {
              
-
+    
       if (link) {
   
         console.log("LINK")
@@ -35,8 +34,8 @@ import Error from './Error';
   
      isAuth && !link &&  copyLink()
    
-     return () => isAuth && link && clearLink()
-    }, [link,isAuth])
+     return () => isAuth && (link || error) && clearLink()
+    }, [link,isAuth,error])
 
     if (!isAuth) {
       
